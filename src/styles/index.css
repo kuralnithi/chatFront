@@ -1,0 +1,61 @@
+/* src/styles/index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html{
+
+    margin: 0px;
+    padding: 0px;
+    
+    }
+    body{
+
+    }
+    
+#root{
+
+    margin:0px;
+    padding: 0px;
+}
+
+.limg{
+    
+    height:150%;
+    
+}
+
+.logintext{
+
+font-family: cursive;
+
+
+}
+
+#scroll{
+    
+}
+.chatroom{
+
+    max-height: 88%;
+    
+    
+}
+.activeuser{
+    
+    
+    max-height: 100%;
+    
+}
+
+.mainbox{
+
+    height: 83vh;
+
+}
+.subbox{
+
+height: 83vh;
+
+}
