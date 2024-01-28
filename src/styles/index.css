@@ -3,17 +3,17 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
 html{
 
     margin: 0px;
     padding: 0px;
-    
-    }
+ 
+}
+
     body{
 
+        background-color: rgba(209, 213, 219);
     }
-    
 #root{
 
     margin:0px;
@@ -27,21 +27,15 @@ html{
 }
 
 .logintext{
-
 font-family: cursive;
-
-
 }
 
-#scroll{
-    
-}
+
 .chatroom{
-
     max-height: 88%;
     
-    
 }
+
 .activeuser{
     
     

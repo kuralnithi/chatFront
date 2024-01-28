@@ -5,6 +5,13 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
 
+const handleLogIn = ()=>{
+if(!user) alert("please enter a username");
+if(!room) alert("please enter a roomname");
+
+}
+
+
   return (
     <div className=" lg:flex justify-center  md:h-screen bg-gray-200  ">
       <div className="box1   bg-gray-200  md:space-y ">
@@ -18,7 +25,7 @@ export default function Login() {
         </div>
       </div>
 
-      <div className="box2 md:h-96 flex-1 lg:mt-34 md:my-40   lg:mx-36  md:w-full md:max-w-full md:min-w-96    shadow-2xl rounded-2xl bg-white">
+      <div className="box2  md:h-96 flex-1 lg:mt-34 md:my-40   lg:mx-36  md:w-full md:max-w-full md:min-w-96    shadow-2xl rounded-2xl bg-white">
         <div className="logo flex justify-center ">
           <img
             className="limg rounded-md "
@@ -32,8 +39,9 @@ export default function Login() {
         </h1>
 
         <div className="box  md:mx-auto md:w-mdall md:max-w-md ">
-          <form className="space-y-6" action="#" method="POST">
-            <div className="inp">
+          <form className="space-y-6 mx-7 " action="#" method="POST">
+            <div className="inp ">
+            
               <label
                 htmlFor={"user"}
                 className="block text-md font-medium leading-6 text-gray-900"
@@ -46,7 +54,7 @@ export default function Login() {
                   type="text"
                   placeholder=" Enter your name"
                   required
-                  className="border p-2 my-1  sm:w-full rounded-md placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-blue-300"
+                  className="border p-2 my-1  w-full rounded-md placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-blue-300"
                   />
               </div>
 
@@ -63,17 +71,17 @@ export default function Login() {
                 type="text"
                 placeholder=" Enter your room name"
                 required
-                className=" border my-1 sm:w-full rounded-md p-2 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-blue-300"
+                className=" border my-1 w-full rounded-md p-2 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-blue-300"
               />
             </div>
 
-            <Link className="flex justify-center "
+            <Link className="flex justify-center btn "
               onClick={(e) => (!user || !room ? e.preventDefault() : null)}
               to={`/chat?name=${user}&room=${room}`}
             >
-              <button
+              <button onClick={handleLogIn}
                 type="submit"
-                className=" bg-gray-400   p-2  rounded  border-none font-thin text-base text-white cursor-pointer"
+                className=" bg-gray-400 p-2  rounded  border-none font-thin text-base text-white cursor-pointer"
               > Log in </button>
             </Link>
           </form>

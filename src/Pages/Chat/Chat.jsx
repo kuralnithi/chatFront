@@ -4,7 +4,7 @@ import io from "socket.io-client";
 let socket;
 let name
 export default function Chat() {
-  const BackendURL = "http://localhost:4000";
+  const BackendURL = "http://localhost:5000";
   const [mailString] = useSearchParams();
 
   const [user, setUser] = useState();
@@ -39,12 +39,18 @@ export default function Chat() {
 
       setMessage((prevMsg) => [...prevMsg, msg])
 
-      let scrollDiv = document.getElementById("scroll");
+      setActiveUser(activeUsers=>activeUsers);
+
+
+      setTimeout(() => {
+  
+      var scrollDiv = document.getElementById("scroll");
 
       scrollDiv.scrollTop = scrollDiv.scrollHeight;
 
       console.log("msggg", message);
       console.log("SOCKET : ", socket);
+    }, 1000);
 
     }) );
     
@@ -72,9 +78,10 @@ export default function Chat() {
         let scrollDiv = document.getElementById("scroll");
 
         scrollDiv.scrollTop = scrollDiv.scrollHeight;
+        console.log("SD", scrollDiv.scrollTop);
+
       }, 1000);
 
-      console.log("SD", scrollDiv.scrollTop);
     });
   };
 
@@ -100,8 +107,10 @@ export default function Chat() {
         <div className="sub flex flex-row justify-between bg-white subbox">
           <div className="flex flex-col w-2/5 border-r-2 overflow-y-auto">
             
-            <div id="scroll" className=" overflow-y-auto activeuser scrollbar-thin scrollbar-thumb-gray-200  ">
-              <div className="flex justify-center font-bold text-gray-400 bg-green-200 "><span>ACTIVE USERS   </span></div>
+              <div className="flex justify-center font-bold text-gray-400 bg-green-200 sticky top-0 left-0 right-0 z-10">ACTIVE USERS  </div>
+         
+            <div  className=" overflow-y-auto activeuser scrollbar-thin scrollbar-thumb-gray-200  ">
+            
               {activeUser.map((activeUser, Idx) => {
 
 
@@ -125,7 +134,6 @@ export default function Chat() {
                           <div className="text-lg font-semibold ">
                           
                             {activeUser.username}
-                          
                           </div>
                         
                         </div>
@@ -142,12 +150,15 @@ export default function Chat() {
               
               {message.map((msg, idx) => (
                 <>
-                                    {msg.user=="admin" && 
+                                    {msg.user=="admin" ?
                                    <> <div className="w-full bg-gray-200 flex justify-center rounded-lg my-2">
 
                                       <span> Admin</span>
-
+                                    
+                                   
                                     </div>
+                                   
+                                  
                                     <div key={idx} className="flex justify-center mb-4">
                                                   
                                                   <div className=" py-1 px-2  rounded-2xl text-black bg-green-200">
@@ -157,13 +168,12 @@ export default function Chat() {
                                                 
                                       </div>
 
-                                    </>
-                                    }
+                                    <hr />
+                                    </> 
 
-
-
-                  {msg.user  === user || msg.user !== "admin"  ? (
-                    <div key={idx} className="flex justify-end mb-4">
+                                      : msg.user  === user   ? (
+                   
+                   <div key={idx} className="flex justify-end mb-4">
                       <div className="mr-2 py-3 px-4  rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-black bg-green-200">
                         {JSON.parse( JSON.stringify(msg.text))}
                       </div>
