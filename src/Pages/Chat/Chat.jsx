@@ -4,7 +4,7 @@ import io from "socket.io-client";
 let socket;
 let name
 export default function Chat() {
-  const BackendURL = "http://localhost:5000";
+  const BackendURL = "https://chatappserver-ocdw.onrender.com";
   const [mailString] = useSearchParams();
 
   const [user, setUser] = useState();
