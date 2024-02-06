@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import { lazy , Suspense } from 'react'
 
 const Login =lazy(()=> import("./Pages/Login/Login.jsx"))

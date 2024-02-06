@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../App.css";
+
 
 export default function Login() {
   const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
 
 const handleLogIn = ()=>{
+
 if(!user) alert("please enter a username");
 if(!room) alert("please enter a roomname");
 
@@ -38,8 +41,8 @@ if(!room) alert("please enter a roomname");
           Login to your Account
         </h1>
 
-        <div className="box  md:mx-auto md:w-mdall md:max-w-md ">
-          <form className="space-y-6 mx-7 " action="#" method="POST">
+        <div className="box md:mx-auto md:w-mdall md:max-w-md ">
+          <form className="space-y-6 mx-7" action="#" method="POST">
             <div className="inp ">
             
               <label
